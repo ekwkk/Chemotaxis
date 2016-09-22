@@ -1,13 +1,12 @@
-Bacteria [] colony = new Bacteria[1];
-Food yummy = new Food();
-float foodX, foodY;
+Bacteria [] colony = new Bacteria[(int)(Math.random()*100-2)];
+
 
  void setup()   
  {     
  	size(600,600);
  	for (int i = 0; i < colony.length; i++)
  	{
- 		colony[i] = new Bacteria();
+ 		colony[i] = new Bacteria((int)(Math.random()*600), (int)(Math.random()*600));
  	}
 
  }   
@@ -24,7 +23,6 @@ float foodX, foodY;
  		colony[i].show();
  		colony[i].walk();
  	}
- 	yummy.show();
 
  }  
 
@@ -36,49 +34,35 @@ float foodX, foodY;
  {     
 
  	float myX, myY;
- 	float easing = 0.01;
+ 	float easing = 0.008;
+ 	int myColor = color((int)(Math.random()*180),(int)(Math.random()*180),220);
 
- 	Bacteria()
+ 	Bacteria(int x, int y)
  	{
- 		myX = 300;
- 		myY = 300;
+ 		myX = x;
+ 		myY = y;
  	}
 
  	void show()
  	{
- 		int myColor = color(25,25,25);
+ 		noStroke();
  		fill(myColor);
  		ellipse(myX, myY, 20, 20);
  	}
 
  	void walk()
  	{
- 		float targetX = foodX;
+ 		float targetX = mouseX;
   		float dx = targetX - myX;
-  		myX += (dx * easing) + (Math.random()*2-1);
+  		myX += (dx * easing) + (Math.random()*4-2);
 
- 		float targetY = foodY;
+ 		float targetY = mouseY;
  		float dy = targetY - myY;
- 		myY += (dy * easing) + (Math.random()*2-1);
+ 		myY += (dy * easing) + (Math.random()*4-2);
 
  	}
+
+
+
  }
 
-
-
-
-
- class Food
- {
- 	Food()
- 	{
- 		foodX = foodY = (float)(Math.random()*600);
- 	}
-
- 	void show()
- 	{
- 		int foodColor = color(160,160,160);
- 		fill(foodColor);
- 		rect(foodX, foodY, 10, 10);
- 	}
- }

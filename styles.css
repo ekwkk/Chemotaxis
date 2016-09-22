@@ -1,14 +1,16 @@
 body {
-    background-color: rgb(200,200,200);
+    background: linear-gradient(90deg, #33FFE0, #33B2FF);
     color: rgb(0,0,0);
-    font-family: "Open Sans", sans-serif;
+    font-family: Papyrus, fantasy;
     text-align: center;
+    font-size: 28pt;
+    font-weight: bold;
 }
 
 #content {
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 
 header {
@@ -17,5 +19,5 @@ header {
 
 footer {
 	font-style: italic;
-	font-size: 90%;
+	font-size: 100%;
 }
